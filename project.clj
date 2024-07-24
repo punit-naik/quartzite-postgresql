@@ -8,16 +8,17 @@
                  [migratus "1.5.4"]
                  [org.clojure/clojure "1.11.3"]
                  [org.postgresql/postgresql "42.7.1"]
-                 [com.taoensso/timbre "6.5.0"]]
+                 [com.taoensso/timbre "6.5.0"]
+                 [org.clojars.bigsy/pg-embedded-clj "1.0.1"]]
   :plugins [[lein-environ "1.2.0"]]
   :profiles
   {:dev
    {:env
-    {:migratus-db-name     "test"
+    {:migratus-db-name     "postgres"
      :migratus-db-host     "localhost"
      :migratus-db-port     "5434"
-     :migratus-db-user     "test"
-     :migratus-db-password "test"}
+     :migratus-db-user     "postgres"
+     :migratus-db-password "postgres"}
     :resource-paths ["test-resources"]}
    :test
    {:dependencies [[com.github.seancorfield/honeysql "2.6.1147"]
