@@ -15,7 +15,7 @@
    {:env
     {:migratus-db-name     "test"
      :migratus-db-host     "localhost"
-     :migratus-db-port     "543211"
+     :migratus-db-port     "5434"
      :migratus-db-user     "test"
      :migratus-db-password "test"}
     :resource-paths ["test-resources"]}
