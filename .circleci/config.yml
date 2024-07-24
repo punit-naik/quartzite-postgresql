@@ -38,9 +38,6 @@ jobs:
       - run:
           name: Ensure PostgreSQL is not running
           command: |
-            sudo systemctl stop postgresql || true
-            sudo systemctl disable postgresql || true
-            sudo service postgresql stop || true
             mkdir /tmp/embedded-pg
 
       - save_cache:
