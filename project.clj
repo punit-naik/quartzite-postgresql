@@ -11,7 +11,7 @@
                  [com.taoensso/timbre "6.5.0"]
                  [org.clojars.bigsy/pg-embedded-clj "1.0.1"]]
   :plugins [[lein-environ "1.2.0"]]
-  :aot :all
+  :aot [org.clojars.punit-naik.quartzite-postgresql.MyDynamicClassLoader]
   :profiles
   {:dev
    {:env
