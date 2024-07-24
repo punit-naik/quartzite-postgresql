@@ -2,12 +2,15 @@
 
 A small helper library to set up Quartzite scheduler with PostgreSQL as a store
 
+[![CircleCI](https://circleci.com/gh/punit-naik/quartzite-postgresql/tree/master.svg?style=svg)](https://circleci.com/gh/punit-naik/quartzite-postgresql/tree/master)
+[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.punit-naik/quartzite-postgresql.svg)](https://clojars.org/org.clojars.punit-naik/quartzite-postgresql)
+
 ## Usage
 
 ### Test
 
 ```
-./test.sh
+lein with-profiles +dev test
 ```
 
 ## License
