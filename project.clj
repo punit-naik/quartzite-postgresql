@@ -9,6 +9,7 @@
                  [org.clojure/clojure "1.11.3"]
                  [org.postgresql/postgresql "42.7.1"]
                  [com.taoensso/timbre "6.5.0"]]
+  :plugins [[lein-environ "1.2.0"]]
   :profiles
   {:dev
    {:env
