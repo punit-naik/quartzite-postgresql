@@ -20,10 +20,14 @@
 
 (def connection (atom nil))
 
+(def db-config (migrations/db-config))
+
 (defn scheduler-fixture
   [f]
-  (with-open [c (-> (migrations/db-config) jdbc/get-datasource jdbc/get-connection)]
-    (migrations/init!)
+  (pe/init-pg
+   {:port (Integer/parseInt (:port db-config))})
+  (migrations/init!)
+  (with-open [c (-> db-config jdbc/get-datasource jdbc/get-connection)]
     (let [sch (qs/start (target/make-scheduler!))]
       (reset! sc sch)
       (reset! connection c)
@@ -31,7 +35,8 @@
       (qs/shutdown sch)
       (reset! sc nil)
       (reset! connection nil)))
-  (migrations-test/destroy!))
+  (migrations-test/destroy!)
+  (pe/halt-pg!))
 
 (use-fixtures :each scheduler-fixture)
 
