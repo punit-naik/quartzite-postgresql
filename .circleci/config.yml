@@ -8,6 +8,8 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/clojure:lein-2.7.1
+        environment:
+          PGDATA: /tmp
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -32,6 +34,13 @@ jobs:
             - v1-dependencies-
 
       - run: lein deps
+
+      - run:
+          name: Ensure PostgreSQL is not running
+          command: |
+            sudo systemctl stop postgresql || true
+            sudo systemctl disable postgresql || true
+            sudo service postgresql stop || true
 
       - save_cache:
           paths:
