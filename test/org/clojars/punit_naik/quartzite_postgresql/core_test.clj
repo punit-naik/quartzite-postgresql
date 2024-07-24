@@ -2,17 +2,18 @@
   (:import
    clojure.lang.Keyword)
   (:require
-   [next.jdbc :as jdbc]
-   [next.jdbc.result-set :as rs]
-   [honey.sql :as honey]
    [clojure.test :refer [deftest is testing use-fixtures]]
    [clojurewerkz.quartzite.jobs :as j]
-   [clojurewerkz.quartzite.triggers :as t]
    [clojurewerkz.quartzite.scheduler :as qs]
+   [clojurewerkz.quartzite.schedule.simple :as ss]
+   [clojurewerkz.quartzite.triggers :as t]
+   [honey.sql :as honey]
+   [next.jdbc :as jdbc]
+   [next.jdbc.result-set :as rs]
    [org.clojars.punit-naik.quartzite-postgresql.core :as target]
    [org.clojars.punit-naik.quartzite-postgresql.migrations :as migrations]
    [org.clojars.punit-naik.quartzite-postgresql.migrations-test :as migrations-test]
-   [clojurewerkz.quartzite.schedule.simple :as ss]
+   [pg-embedded-clj.core :as pe]
    [taoensso.timbre :as log]))
 
 (def sc (atom nil))
