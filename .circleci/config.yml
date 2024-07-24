@@ -41,6 +41,7 @@ jobs:
             sudo systemctl stop postgresql || true
             sudo systemctl disable postgresql || true
             sudo service postgresql stop || true
+            mkdir /tmp/embedded-pg
 
       - save_cache:
           paths:
